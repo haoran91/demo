@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style type="text/css">
+      *{
+          margin: 0;
+          padding: 0;
+          text-decoration: none;}
+      #container {
+          width: 600px;
+          height: 400px;
+          margin: 20px auto;
+          border: 3px solid #333;
+          overflow: hidden;
+          position: relative;}
+      #list {
+          width: 4200px;
+          height: 400px;
+          position: absolute;
+          z-index: 1;}
+      #list img {
+          /*display: none;*/
+          width: 600px;
+          float: left;}
+      #buttons {
+          position: absolute;
+          height: 10px;
+          width: 90px;
+          z-index: 2;
+          bottom: 20px;
+          left: 50%;
+          margin-left: -45px;}
+      #buttons span {
+          cursor: pointer;
+          float: left;
+          border: 1px solid #fff;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: #333;
+          margin: 0 3px;}
+      #buttons .on {
+          background: orangered;}
+      .arrow {
+          cursor: pointer;
+          display: none;
+          line-height: 39px;
+          text-align: center;
+          font-size: 36px;
+          font-weight: bold;
+          width: 40px;
+          height: 40px;
+          position: absolute;
+          z-index: 2;
+          top: 180px;
+          background-color: RGBA(0,0,0,.3);
+          color: #fff;}
+      .arrow:hover {
+          background-color: RGBA(0,0,0,.7);}
+      #container:hover .arrow {
+          display: block;}
+      #prev {
+          left: 20px;}
+      #next {
+          right: 20px;}
+  </style>
+
+  <script type="text/javascript" src="../js/jquery.1.10.2.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      var $con = $('#list');//图片父级容器
+      var $imgs = $('#list img');//图片集合
+      var imgLength = $imgs.length;//图片数量
+      // var imgWidth = $imgs.width();
+      var imgWidth = 600;//图片宽度
+      var conIdx = 0;//默认索引
+      var locked = false;//状态锁
+      var $btns = $('#buttons span');//小圆点集合
+
+      var $imgFirst = $imgs.eq(0);//获取第一张图片
+      var $imgLast = $imgs.eq(imgLength - 1);//获取最后一张图片
+      $con.prepend($imgLast.clone());//克隆最后一张并添加到父级第一位
+      $con.append($imgFirst.clone());//克隆第一张并添加到父级最后一位
+
+      $con.width(imgWidth * (imgLength + 2));//设置容器宽度
+      $con.css({'left': '-' + imgWidth + 'px'});//设置默认left值，显示第一张图片
+
+      //图片切换函数
+      function playNext(n) {
+        var idx = n || 1;
+        //判断是否正在执行动画
+        if(locked == true){
+          return;
+        }
+        locked = true;
+        //切换动画
+        $con.animate({'left': '-=' + imgWidth * idx + 'px'}, 700, function () {
+          conIdx = conIdx + idx;
+          if( conIdx == imgLength){
+            $con.css({'left': '-' + imgWidth + 'px'});
+            conIdx = 0;
+          }
+          locked = false;//关闭状态锁
+          setButton();//小圆点切换
+        })
+      }
+      function playPre(n) {
+        var idx = n || 1;
+        //判断是否正在执行动画
+        if(locked == true){
+          return;
+        }
+        locked = true;
+        //切换动画
+        $con.animate({'left': '+=' + imgWidth * idx + 'px'}, 700, function () {
+          conIdx = conIdx - idx;
+          if( conIdx < 0){
+            $con.css({'left': '-' + imgWidth * imgLength + 'px'});
+            conIdx = imgLength - 1;
+          }
+          locked = false;//关闭状态锁
+          setButton();//小圆点切换
+        })
+      }
+      //小圆点样式切换
+      function setButton() {
+        $btns.removeClass().eq(conIdx).addClass('on');
+      }
+      //左右按钮单击事件
+      $('#next').click(function (e) {
+        e.preventDefault();//阻止默认行为
+        playNext();
+      })
+      $('#prev').click(function (e) {
+        e.preventDefault();//阻止默认行为
+        playPre();
+      })
+      //小圆点单击事件
+      $btns.on('click', function () {
+        var myIndex = $(this).index();
+        if(myIndex > conIdx){
+          playNext(myIndex - conIdx);
+        }else if(myIndex < conIdx){
+          playPre(conIdx - myIndex);
+        }
+      })
+      //自动播放
+      function autoPlay() {
+        auto = setInterval(function () {
+          playNext();
+        }, 2000);
+      }
+      //滑入停止自动播放，滑出开始自动播放
+      $('#container').hover(function () {
+        clearInterval(auto);
+      },function () {
+        auto = setInterval(function () {
+          // play((conIdx + 1) % imgLength);
+          playNext();
+        }, 2000);
+      })
+      //调用自动播放
+      autoPlay();
+    })
+  </script>
+
+</head>
+<body>
+  <div id="container">
+      <div id="list">
+          <img src="img/1.jpg" alt="1"/>
+          <img src="img/2.jpg" alt="2"/>
+          <img src="img/3.jpg" alt="3"/>
+          <img src="img/4.jpg" alt="4"/>
+      </div>
+      <div id="buttons">
+          <span index="0" class="on"></span>
+          <span index="1"></span>
+          <span index="2"></span>
+          <span index="3"></span>
+      </div>
+      <a href="#" id="prev" class="arrow">&lt;</a>
+      <a href="#" id="next" class="arrow">&gt;</a>
+  </div>
+
+</body>
+</html>

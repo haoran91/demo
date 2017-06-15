@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style type="text/css">
+      *{
+          margin: 0;
+          padding: 0;
+          text-decoration: none;}
+      #container {
+          width: 600px;
+          height: 400px;
+          margin: 20px auto;
+          border: 3px solid #333;
+          overflow: hidden;
+          position: relative;}
+      #list {
+          width: 4200px;
+          height: 400px;
+          position: absolute;
+          z-index: 1;}
+      #list img {
+          display: none;
+          position: absolute;top: 0;left: 0;}
+      #buttons {
+          position: absolute;
+          height: 10px;
+          width: 90px;
+          z-index: 2;
+          bottom: 20px;
+          left: 50%;
+          margin-left: -45px;}
+      #buttons span {
+          cursor: pointer;
+          float: left;
+          border: 1px solid #fff;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: #333;
+          margin: 0 3px;}
+      #buttons .on {
+          background: orangered;}
+      .arrow {
+          cursor: pointer;
+          display: none;
+          line-height: 39px;
+          text-align: center;
+          font-size: 36px;
+          font-weight: bold;
+          width: 40px;
+          height: 40px;
+          position: absolute;
+          z-index: 2;
+          top: 180px;
+          background-color: RGBA(0,0,0,.3);
+          color: #fff;}
+      .arrow:hover {
+          background-color: RGBA(0,0,0,.7);}
+      #container:hover .arrow {
+          display: block;}
+      #prev {
+          left: 20px;}
+      #next {
+          right: 20px;}
+  </style>
+
+  <script type="text/javascript" src="../js/jquery.1.10.2.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      var $imgs = $('#list img');//图片集合
+      var imgLength = $imgs.length;//图片数量
+      var conIdx = 0;//默认索引
+      var locked = false;//状态锁
+      var $btns = $('#buttons span');//小圆点集合
+
+      $imgs.eq(0).show();//第一张图片显示
+
+      //图片切换函数
+      function play(idx) {
+        //判断是否正在执行动画
+        if(locked == true){
+          return;
+        }
+        locked = true;
+        //图片淡入淡出
+        $imgs.eq(conIdx).fadeOut(500);
+        $imgs.eq(idx).fadeIn(500, function () {
+          locked = false;
+        })
+
+        conIdx = idx;//更新索引
+        setButton();//小圆点切换
+      }
+      //小圆点样式切换
+      function setButton() {
+        $btns.removeClass().eq(conIdx).addClass('on');
+      }
+      //左右按钮单击事件
+      $('#next').click(function () {
+        play((conIdx + 1) % imgLength);
+      })
+      $('#prev').click(function () {
+        play((imgLength + conIdx - 1) % imgLength);
+      })
+      //小圆点单击事件
+      $btns.on('click', function () {
+        var myIndex = parseInt($(this).attr('index'));
+        play(myIndex);
+      })
+      //自动播放
+      function autoPlay() {
+        auto = setInterval(function () {
+          play((conIdx + 1) % imgLength);
+        }, 3000);
+      }
+      //滑入停止自动播放，滑出开始自动播放
+      $('#container').hover(function () {
+        clearInterval(auto);
+      },function () {
+        auto = setInterval(function () {
+          // play((conIdx + 1) % imgLength);
+          $('#next').trigger('click');
+        }, 3000);
+      })
+      //调用自动播放
+      autoPlay();
+    })
+  </script>
+
+</head>
+<body>
+  <div id="container">
+      <div id="list">
+          <img src="img/1.jpg" alt="1"/>
+          <img src="img/2.jpg" alt="2"/>
+          <img src="img/3.jpg" alt="3"/>
+          <img src="img/4.jpg" alt="4"/>
+      </div>
+      <div id="buttons">
+          <span index="0" class="on"></span>
+          <span index="1"></span>
+          <span index="2"></span>
+          <span index="3"></span>
+      </div>
+      <a href="javascript:;" id="prev" class="arrow">&lt;</a>
+      <a href="javascript:;" id="next" class="arrow">&gt;</a>
+  </div>
+
+</body>
+</html>
