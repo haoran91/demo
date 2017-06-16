@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>domeTitle</title>
   <link rel="stylesheet" href="css/reset.css">
+  <script type="text/javascript" src="js/vue2.3.0.js"></script>
   <style media="screen">
     .demoBox{
       margin-left: 100px;
@@ -31,12 +32,27 @@
   </style>
 </head>
 <body>
-  <div class="demoBox">
+  <div class="demoBox" id="demoBox">
     <h1>Demo 列表</h1>
     <ul>
-      <li><a href="轮播/huadong.html" target="_blank">1.滑动轮播</a></li>
-      <li><a href="轮播/jianbian.html" target="_blank">2.渐变轮播</a></li>
+      <li v-for="(item , index) in demos">
+        <a :href="item.href" target="_blank">{{index + 1}}.{{item.con}}</a>
+      </li>
+      <!-- <li><a href="轮播/huadong.html" target="_blank">1.滑动轮播</a></li>
+      <li><a href="轮播/jianbian.html" target="_blank">2.渐变轮播</a></li> -->
     </ul>
   </div>
+
+  <script type="text/javascript">
+    var demoBox = new Vue({
+      el: '#demoBox',
+      data: {
+        demos: [
+          {href: '轮播/huadong.html', con: '滑动轮播'},
+          {href: '轮播/jianbian.html', con: '渐变轮播'},
+        ]
+      }
+    });
+  </script>
 </body>
 </html>
