@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>jquery 返回顶部</title>
+	<style type="text/css">
+		#btn {
+			width:40px;
+			height:40px;
+			position:fixed;
+			right:65px;
+			bottom:10px;
+			background:url(images/top_bg.png) no-repeat left top;
+			display: none;/*隐藏按钮*/
+		}
+		#btn:hover {
+			background:url(images/top_bg.png) no-repeat 0 -39px;
+		}
+		.bg {
+			width:1190px;
+			margin:0 auto;
+		 }
+	</style>
+<script src="../js/jquery.1.10.2.js"></script>
+</head>
+<body>
+	<a href="javascript:;" id="btn" title="回到顶部"></a>
+	<div class="bg">
+		<img src="images/tb_bg.jpg" alt="" />
+	</div>
+
+	<script type="text/javascript">
+	$(function () {
+		var $btn = $('#btn');//获取按钮
+		var timer;//创建空的定时器
+		var isTop = true;//状态锁
+		var clientHeight = $(window).height();//窗口可视区域高度
+
+		$(window).scroll(function () {
+			var osTop = $(document).scrollTop();//滚动条距离顶部的高度
+			//滑过一屏高度后显示按钮，否则隐藏按钮
+			if(osTop >= clientHeight){
+				$btn.css({'display': 'block'});
+			}else{
+				$btn.css({'display': 'none'});
+			}
+			//切换状态
+			if(!isTop){
+				clearInterval(timer);
+			}
+			isTop = false;
+		});
+
+		$btn.click(function () {
+			//设置定时器，使动画平滑进行
+			timer = setInterval(function () {
+				var osTop = $(document).scrollTop();
+				var ispeep = Math.floor(- osTop / 6);//速度
+
+				isTop = true;
+				$(document).scrollTop(osTop + ispeep);//高度变化
+				//到达顶部清除定时器
+				if(osTop == 0){
+					clearInterval(timer);
+				}
+			}, 30);
+		});
+	});
+	</script>
+</body>
+</html>
