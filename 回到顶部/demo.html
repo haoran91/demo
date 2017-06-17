@@ -5,20 +5,20 @@
 	<title>jquery 返回顶部</title>
 	<style type="text/css">
 		#btn {
-			width:40px;
-			height:40px;
-			position:fixed;
-			right:65px;
-			bottom:10px;
-			background:url(images/top_bg.png) no-repeat left top;
+			width: 40px;
+			height: 40px;
+			position: fixed;
+			right: 30px;
+			bottom: 120px;
+			background: url(images/top_bg.png) no-repeat left top;
 			display: none;/*隐藏按钮*/
 		}
 		#btn:hover {
 			background:url(images/top_bg.png) no-repeat 0 -39px;
 		}
 		.bg {
-			width:1190px;
-			margin:0 auto;
+			width: 1190px;
+			margin: 0 auto;
 		 }
 	</style>
 <script src="../js/jquery.1.10.2.js"></script>
@@ -44,7 +44,7 @@
 			}else{
 				$btn.css({'display': 'none'});
 			}
-			//切换状态
+			//切换状态，手动触发事件清除定时器
 			if(!isTop){
 				clearInterval(timer);
 			}
@@ -57,7 +57,7 @@
 				var osTop = $(document).scrollTop();
 				var ispeep = Math.floor(- osTop / 6);//速度
 
-				isTop = true;
+				isTop = true;//动画状态
 				$(document).scrollTop(osTop + ispeep);//高度变化
 				//到达顶部清除定时器
 				if(osTop == 0){
