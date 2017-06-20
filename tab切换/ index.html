@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>tab切换</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .tab{
+      width: 300px;
+      margin: 30px auto;
+      border: 1px solid #000;
+      text-align: center;
+    }
+    ul{
+      list-style: none;
+      width: 100%;
+      height: 30px;
+      line-height: 30px;
+    }
+    ul li{
+      width: 75px;
+      float: left;
+      background-color: #e4e4e4;
+      cursor: pointer;
+    }
+    ul li.active{
+      background-color: #fff;
+    }
+    .child{
+      width: 100%;
+      height: 150px;
+      font-size: 20px;
+      line-height: 150px;
+    }
+    .child div{
+      display: none;
+    }
+  </style>
+  <script src="../js/jquery.1.10.2.js"></script>
+</head>
+<body>
+<div class="tab">
+  <ul>
+    <li class="active">小红</li>
+    <li>小蓝</li>
+    <li>小黄</li>
+    <li>小绿</li>
+  </ul>
+  <div class="child">
+    <div style="background-color: #ff7575;">我是小红</div>
+    <div style="background-color: #58b0f9;">我是小蓝</div>
+    <div style="background-color: #f3f984;">我是小黄</div>
+    <div style="background-color: #b0fb88;">我是小绿</div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(function () {
+    var idx = 0;//默认索引
+    $('.child div').eq(idx).show();//默认显示第一项
+
+    $('.tab li').on('click', function () {
+      //点击高亮选项不执行函数
+      if(idx == $(this).index()){
+        return;
+      }
+      //更新索引
+      idx = $(this).index();
+      //为高亮选项添加class值
+      $(this).addClass('active').siblings().removeClass('active');
+      //根据索引显示div
+      $('.child div').eq(idx).show().siblings().hide();
+    })
+  })
+</script>
+</body>
+</html>
