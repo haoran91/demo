@@ -1,0 +1,214 @@
+body{
+    -webkit-font-smoothing:antialiased;
+    background-color: #f6f6f6;
+    color: #666;
+    font:12px/1.5 Microsoft YaHei,tahoma,arial,Hiragino Sans GB,\\5b8b\4f53,sans-serif;
+}
+/*.fn_clear{*/
+    /*clear: both;*/
+/*}*/
+/*.o2_mini .w{*/
+    /*width:990px;*/
+/*}*/
+/*.hover{*/
+    /*z-index:22;*/
+/*}*/
+/*.hover .dropdown-layer{!*显示下拉菜单,.dropdown:hover .dropdown_layer*!*/
+    /*display:block;*/
+/*}*/
+#ttbar_mycity:hover .dropdown_layer,
+#ttbar_myjd:hover .dropdown_layer,
+#ttbar_serv:hover .dropdown_layer,
+#ttbar_navs:hover .dropdown_layer{
+    display: block;
+}
+#ttbar_mycity:hover .cw_icon,
+#ttbar_myjd:hover .cw_icon,
+#ttbar_serv:hover .cw_icon,
+#ttbar_navs:hover .cw_icon
+{/*更改有下拉菜单区块样式,.dropdown:hover .cw_icon*/
+    padding-bottom:2px;
+    border-color:#ccc;/**/
+    border-bottom:none;
+    background-color:#fff;
+}
+.dropdown{
+    position: relative;
+    z-index: 21;
+}
+.cw_icon{
+    position: relative;
+    z-index: 100;
+    float: left;
+    border: 1px solid #e3e4e5;
+}
+.dropdown_layer{
+    display: none;
+    position: absolute;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 22;
+}
+/*以上为共享样式*/
+#shortcut{
+    border-bottom: 1px solid #ddd;
+    background-color: #e3e4e5;
+}
+#shortcut a{
+    color: #999;
+}
+#shortcut a:hover{
+    color: #c81623;
+}
+#shortcut .w{
+    width: 1190px;
+    margin: 0 auto;
+    height: 30px;
+    line-height: 30px;
+    color: #999;
+}
+#shortcut .w .cw_icon{
+    height: 28px;
+    line-height: 28px;
+}
+#shortcut li{
+    float: left;
+}
+#shortcut li.spacer{
+    width: 1px;
+    height: 10px;
+    margin: 11px 5px 0 ;
+    background-color: #ccc;
+    overflow: hidden;
+}
+#shortcut .dropdown_layer{
+    top: 30px;
+}
+#shortcut .dt{
+    padding: 0 7px 0 7px;
+}
+#shortcut .dd{
+    line-height: 24px;
+}
+/*以下 shortcut 左边ul*/
+#ttbar_mycity{
+    margin-left: 200px;
+}
+#ttbar_mycity .iconfont{
+    font-size: 14px;
+    color: #f10215;
+}
+#ttbar_mycity .dd{
+    left: 0;
+    width: 300px;
+    padding: 10px;
+}
+#ttbar_mycity .item{
+    float: left;
+    width: 60px;
+    padding: 2px 0;
+}
+#ttbar_mycity .item a{
+    float: left;
+    padding: 0 8px;
+}
+#ttbar_mycity .item a:hover{
+    background-color: #f4f4f4;
+}
+#ttbar_mycity .item a.selected{
+    background-color: #f10215;
+    color: #fff;
+}
+/*以下 shortcut 右边ul*/
+#ttbar_login{
+    margin-right: 8px;
+}
+#ttbar_login .link_regist{
+    color: #c81623;
+    margin-left: 5px;
+}
+#ttbar_myjd .dropdown_layer{
+    left: 0;
+    width: 280px;
+}
+#ttbar_myjd .userinfo{
+    padding: 10px 0 10px 15px;
+    overflow: hidden;
+}
+#ttbar_myjd .u_pic{
+    float: left;
+    margin-right: 10px;
+}
+#ttbar_myjd .u_pic img{
+    -moz-border-radius:50%;
+    border-radius:50%;
+}
+#ttbar_myjd .u_name{
+    font-weight: bold;
+    padding-top: 6px;
+}
+#ttbar_myjd .otherlist{
+    width: 255px;
+    padding-left: 15px;
+    margin: 5px 0 10px 0;
+    overflow: hidden;
+}
+#ttbar_myjd .otherlist .fore1,#ttbar_myjd .otherlist .fore2{
+    float: left;
+    width: 126px;
+}
+#ttbar_serv .cw_icon{
+    padding: 0 6px;
+}
+#ttbar_serv .dd{
+    right: 0;
+    width: 170px;
+    padding: 10px 0;
+}
+#ttbar_serv .item{
+    width: 70px;
+    display: inline-block;
+    padding-left: 15px;
+    float: left;
+}
+#ttbar_serv .item_business,#ttbar_serv .item_client{
+    padding-left: 15px;
+    font-weight: bold;
+    color: #666;
+}
+#ttbar_serv .fn{
+    margin-bottom: 5px;
+}
+#ttbar_serv .item_business{
+    border-top: 1px dotted #eee;
+    clear: both;
+}
+#ttbar_navs .dd{
+    right: 0;
+    width: 1188px;
+    padding: 15px 0;
+}
+#ttbar_navs dl{
+    float: left;
+    width: 255px;
+    padding-left: 20px;
+    border-left: 1px solid #eee;
+}
+#ttbar_navs dl.fore1{
+    width: 340px;
+    border-left: none;
+}
+#ttbar_navs dt{
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #666;
+}
+#ttbar_navs dd{
+    overflow: hidden;
+}
+#ttbar_navs .item{
+    overflow: hidden;
+    float: left;
+    width: 85px;
+    white-space:nowrap;
+}

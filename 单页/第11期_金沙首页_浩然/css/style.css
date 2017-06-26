@@ -1,0 +1,353 @@
+.w{
+    width: 1000px;
+    margin: 0 auto;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+a:hover{
+    text-decoration: underline;
+}
+
+
+header{
+    width: 100%;
+    height: 488px;
+    position: relative;
+}
+
+header .logoBar{
+    width: 954px;
+    padding-left: 46px;
+    margin-left: -500px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 1;
+}
+.logoBar a{
+    display: inline-block;
+}
+.logoBar a.logo{
+    width: 176px;
+    height: 127px;
+}
+.logoBar a.dianhua{
+    width: 295px;
+    height: 71px;
+    margin-left: 410px;
+    vertical-align: 26px;
+}
+
+header .nav{
+    width: 100%;
+    height: 42px;
+    background-color: #a28f65;
+    position: absolute;
+    top: 128px;
+    z-index: 10;
+}
+.nav ul{
+    width: 1000px;
+    margin: 0 auto;
+    padding-left: 70px;
+}
+.nav ul li{
+    float: left;
+    line-height: 42px;
+}
+.nav ul li a{
+    display: inline-block;
+    font: 14px/42px "微软雅黑";
+    color: #fff;
+    text-align: center;
+    width: 133px;
+    border-left: 1px solid #c7ac6f;
+    border-right: 1px solid #7c6d4d;
+}
+.nav ul li a.first{
+    border-left: none;
+}
+.nav ul li a.last{
+    border-right: none;
+}
+
+header .bannerBox{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 10px rgba(237,220,187,0.8);
+}
+.bannerBox .imgbox{
+    width: 1440px;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    margin-left: -720px;
+}
+.bannerBox .numberBar{
+    position: absolute;
+    top: 460px;
+    left: 50%;
+    margin-left: -46px;
+}
+
+header .kefu{
+    position: absolute;
+    right: 0;
+    top: 210px;
+}
+
+
+.video{
+    margin-top: 25px;
+    height: 292px;
+    overflow: hidden;
+}
+.video h2{
+    font: bold 14px "宋体 Regular";
+    color: #a63110;
+    text-indent: 13px;
+    margin-bottom: 11px;
+    background: url("../images/sanjin_big.png") left center no-repeat;
+}
+.video h2 span{
+    font: 6px "Myriad Pro Regular";
+    color: #b1a389;
+    text-transform: uppercase;
+    margin-left: 8px;
+}
+
+.video .videoBox{
+    height: 292px;
+}
+.video .videoBox video{
+    padding: 6px;
+    border: 1px solid #d8ccb2;
+    cursor: pointer;
+}
+
+.projectBox{
+    margin-left: 19px;
+    height: 292px;
+    position: relative;
+}
+.projectBox .projectImg a{
+    display: inline-block;
+    width: 382px;
+    height: 251px;
+    padding: 4px;
+    border: 1px solid #d8ccb2;
+    overflow: hidden;
+}
+.projectImg .numberBar{
+    position: absolute;
+    bottom: 10px;
+    right: 14px;
+}
+
+.video .saleBox{
+    margin-left: 19px;
+    height: 292px;
+}
+.saleBox div{
+    width: 234px;
+    height: 259px;
+    border: 1px solid #d8ccb2;
+    padding-left: 10px;
+    overflow: hidden;
+}
+.saleBox div a{
+    width: 100%;
+    font: 12px "宋体 Regular";
+    color: #797c7f;
+    text-indent: 10px;
+    display: inline-block;
+    padding: 15px 0 9px 0;
+    border-bottom: 1px dashed #cecece;
+    background: url("../images/sanjiao_small.png") 0 20px no-repeat;
+}
+.saleBox div a.last{
+    border-bottom: none;
+}
+.saleBox div a:hover{
+    color: #a63110;
+    text-decoration: none;
+}
+
+
+.mainBanner{
+    margin-top: 30px;
+    clear: both;
+}
+.mainBanner a{
+    display: block;
+    width: 986px;
+    height: 112px;
+    padding: 3px 6px;
+    border: 1px solid #d8ccb2;
+    margin: 0 auto;
+}
+
+
+.summary{
+    margin-top: 28px;
+}
+
+.summary .summaryLeft{}
+.summaryLeft .bigImg{
+    width: 310px;
+    height: 247px;
+    padding: 6px;
+    border: 1px solid #d8ccb2;
+}
+
+.summaryLeft .smallImg{
+    margin-top: 14px;
+    position: relative;
+}
+.summaryLeft .smallImg a.left{
+    display: inline-block;
+    width: 17px;
+    height: 54px;
+    background: url("../images/sanjiao_btn.png") no-repeat;
+}
+.summaryLeft .smallImg a.right{
+    display: inline-block;
+    width: 17px;
+    height: 54px;
+    background: url("../images/sanjiao_btn.png") -17px 0 no-repeat;
+}
+.summaryLeft .smallImg .img{
+    width: 271px;
+    height: 53px;
+    position: absolute;
+    top: 0;
+    left: 26px;
+    overflow: hidden;
+}
+.summaryLeft .smallImg ul{
+    width: 432px;
+    height: 53px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.summaryLeft .smallImg li{
+    float: left;
+    border: 1px solid #d8ccb2;
+    padding: 1px;
+    margin-right: 17px;
+    width: 51px;
+    height: 49px;
+}
+
+
+.summary .summaryRight{
+    font: 12px "宋体 Regular";
+    line-height: 24px;
+    color: #363433;
+    margin-right: 42px;
+}
+.summary .summaryRight h3{
+    font-size: 14px;
+    color: #a63110;
+}
+.summary .summaryRight p{
+    color: #a63110;
+}
+.summary .summaryRight span ,.summary .summaryRight i{
+    color: #a63110;
+    width: 4em;
+}
+.summary .summaryRight span.font2{
+    letter-spacing: 2em;
+}
+.summary .summaryRight span.font3{
+    letter-spacing: 0.5em;
+}
+.summary .summaryRight span.one{
+    margin-left: 116px;
+}
+.summary .summaryRight span.two{
+    margin-left: 200px;
+}
+.summary .summaryRight a{
+    color: #a63110;
+}
+.summary .summaryRight a.map{
+    margin-left: 26px;
+}
+.summary .summaryRight img{
+    margin-left: -2px;
+}
+
+
+.projectIntroduction{
+    clear: both;
+}
+.projectIntroduction h2{
+    text-indent: 14px;
+    font: bold 14px "宋体 Regular";
+    color: #bf4141;
+    background: url("../images/icon1.png") 0 1px no-repeat;
+}
+.projectIntroduction h2 span{
+    font: 6px "Myriad Pro Regular";
+    color: #b1a389;
+    text-transform: uppercase;
+    margin-left: 8px;
+}
+.projectIntroduction .dlBox{
+    width: 998px;
+    height: 258px;
+    border: 1px solid #d8ccb2;
+    margin-top: 16px;
+}
+.projectIntroduction .dlBox div{
+    margin-left: -11px;
+    margin-top: 30px;
+}
+.projectIntroduction dl{
+    float: left;
+    margin-left: 32px;
+    text-align: center;
+}
+.projectIntroduction dl dt{
+    width: 215px;
+    height: 162px;
+    position: relative;
+}
+.projectIntroduction dl dt a{
+    display: block;
+    width: 215px;
+    height: 162px;
+}
+.projectIntroduction dl dt .shadow{
+    position: absolute;
+    bottom: -12px;
+    right: -14px;
+    z-index: -1;
+}
+.projectIntroduction dl dd{
+    margin-top: 20px;
+}
+.projectIntroduction dl dd a{
+    font: bold 14px "宋体 Regular";
+    color: #bf4141;
+}
+
+
+
+
+
+
+
+
+
+
+

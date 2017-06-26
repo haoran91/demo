@@ -1,0 +1,54 @@
+header{background: #266dab;
+    width: 100%; height: 500px; min-width: 900px;}
+div.con{margin:0 auto; width:900px;}
+div.con div.logo{float: left; margin-top: 200px;}
+div.con div.sign{float: right; color: #fff;
+    width: 250px; margin-top: 80px;}
+div.con div.sign h1{font-size: 18px; font-weight: normal;
+    margin:10px 0;}
+div.con div.sign .txt{width: 230px; height: 26px; padding: 5px 10px; background: #fff;
+    font-size: 12px; line-height: 26px; border-radius: 2px;}
+div.con div.sign .btn{width: 250px; height: 36px;
+    font-size:14px; line-height: 26px; color: #054073; border-radius: 2px;
+    background: #8dcaff; cursor: pointer;}
+div.con div.sign .btn:hover{background: #70b7f5;}
+div.con div.sign a:hover{text-decoration: underline;}
+div.con div.sign label input{margin-right: 6px;}
+div.con div.sign em{background: url("../images/icon.png") no-repeat; display: inline-block;
+    width: 22px; height: 18px; margin-left: 8px; vertical-align: -5px;}
+div.con div.sign a.btn2{display: block; width: 113px;
+    border: 1px solid #fff; border-radius: 2px;
+    line-height: 34px; text-align: center;}
+div.con div.sign a.btn2:hover{background: #fff; color: #333; text-decoration: none;}
+
+.main{margin: 45px auto 0 auto; width: 700px;}
+.main h2{font-size: 22px; font-weight: normal;
+    text-align: center; color: #000;}
+.main .top ul{margin-top: 20px;}
+.main .top ul li{width: 50px; height: 50px;
+    margin: 10px 0; margin-left: 22px;
+    float: left;}
+.main .top ul li.one{margin-left: 0;}
+/*分割线*/
+.main .bottom{margin-top: 274px;}
+.main .bottom h2{margin-bottom: 50px;}
+.main .bottom .p{margin-left: 70px; margin-top: 30px;
+    border-bottom: 1px solid #eee; padding-bottom: 20px;}
+.main .bottom .p:last-child{border: 0;}
+.main .bottom .p a.head{margin-left: -70px; margin-top: -13px; float: left;}
+.main .bottom h1 a{color: #000; font-size: 16px;}
+.main .bottom p{font-size: 12px; line-height: 24px; margin-top: 4px;}
+.main .bottom p span{margin:0 0 0 20px;}
+.main .bottom p span i,em{background: url("../images/icon.png") no-repeat; margin-right: 6px; display: inline-block;}
+.main .bottom p span i{width: 13px; height: 15px;
+    background-position: -30px 0; vertical-align: -2px;}
+.main .bottom p span em{width: 14px; height: 14px; background-position: -50px 0; vertical-align: -3px;}
+/*分割线*/
+footer{width: 100%; text-align: center; margin-top: 50px; padding: 30px 0 40px 0; border-top: 1px solid #eee;}
+footer a{color: #333;}
+footer a:hover{color: #333; text-decoration: underline;}
+footer h3{font-weight: normal; color: #333;
+    margin-top: 5px;}
+footer p span{display: inline-block; background: #999; margin: 0 12px;
+    width: 1px; height: 10px;}
+footer h3 span{margin-left: 12px;}

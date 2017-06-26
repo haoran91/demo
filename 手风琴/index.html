@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script type="text/javascript" src='./jquery-1.9.1.js'></script>
+  <style media="screen">
+    li{
+      list-style: none;
+      float: left;
+      width: 150px;
+      overflow: hidden;
+      margin-left: 2px;
+      transition: all linear 0.3s;
+    }
+    li.big{
+      width: 300px;
+    }
+    img{
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="" class="">
+  <ul id='con' class="">
+    <li class="big"><img src="./e.jpg" alt=""></li>
+    <li><img src="./e.jpg" alt=""></li>
+    <li><img src="./e.jpg" alt=""></li>
+    <li><img src="./e.jpg" alt=""></li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+  $(function () {
+    $('#con li').on('mouseover', function () {
+      $(this).addClass('big').siblings().removeClass('big');
+    })
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>计算器</title>
+  <style>
+    *  {
+      margin: 0;
+      padding: 0;
+    }
+    #app{
+      width: 208px;
+      margin: 0 auto;
+      margin-top: 30px;
+      box-shadow: 0 0 10px #ccc;
+      background-color: #ccc;
+      overflow: auto;
+    }
+    .result,.enter{
+      text-align: right;
+      padding-right: 10px;
+    }
+    .result{
+      height: 40px;
+      padding-top: 50px;
+      font-size: 36px;
+      line-height: 36px;
+      color: #000;
+    }
+    .enter{
+      font-size: 20px;
+      line-height: 36px;
+      color: #999;
+    }
+    .list div{
+      width: 50px;
+      height: 50px;
+      float: left;
+      border: 1px solid #eee;
+      background-color: #fff;
+      font-size: 16px;
+      text-align: center;
+      line-height: 50px;
+      cursor: pointer;
+    }
+  </style>
+  <script src="https://cdn.bootcss.com/vue/2.3.0/vue.js"></script>
+  <script src="https://cdn.bootcss.com/vuex/2.3.0/vuex.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div class="result">{{result}}</div>
+    <div class="enter">{{enter === ''? 0 : enter}}</div>
+    <div class="keys">
+      <div class="list">
+        <keyboard v-for="item in keys" :value="item"></keyboard>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    const store = new Vuex.Store({
+      state:{
+        result:'',
+        enter:''
+      },
+      mutations:{
+        calculate(state,value){
+          if(value === '='){
+            state.result = eval(state.enter);//
+            state.enter += value;
+          }else if(value === 'c'){
+            state.result = state.enter = '';
+          }else{
+            state.enter += value;
+          }
+        }
+      }
+    })
+    Vue.component('keyboard',{
+      props:['value'],
+      template:'<div @click="getKeyboardValue" :data-value="value">{{value}}</div>',
+      methods:{
+        getKeyboardValue(event){
+          let value = event.target.dataset.value;
+          this.$store.commit('calculate',value)
+        }
+      }
+    })
+    const app = new Vue({
+      el:'#app',
+      data:{
+        keys:['c','+','-','*',
+              '7','8','9','/',
+              '4','5','6','0',
+              '1','2','3','='
+            ]
+      },
+      store,
+      computed:{
+        result(){
+          return this.$store.state.result;
+        },
+        enter(){
+          return this.$store.state.enter;
+        }
+      }
+    })
+  </script>
+</body>
+</html>
